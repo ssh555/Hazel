@@ -14,6 +14,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Hazel/vendor/GLFW/include"
 
+-- 包含对应目录下的 premake5.lua
 include "Hazel/vendor/GLFW"
 
 project "Hazel"
@@ -43,12 +44,12 @@ project "Hazel"
 	links 
 	{ 
 		"GLFW",
-		"opengl32.lib"
+		"opengl32.lib",
 	}
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
+		staticruntime "Off"
 		systemversion "latest"
 
 		defines
